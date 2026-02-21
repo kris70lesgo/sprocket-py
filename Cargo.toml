@@ -1,0 +1,12 @@
+[package]
+name = "sprocket-py"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "sprocket_py"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.28", features = ["extension-module"] }
+wdl-ast = "0.21"
