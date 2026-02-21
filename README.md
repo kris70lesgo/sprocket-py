@@ -1,7 +1,7 @@
 # sprocket-py
 
 **Proof-of-Concept:** Python bindings for [Sprocket](https://sprocket.bio/)'s WDL parser via [PyO3](https://pyo3.rs/).
-
+This repository is a proof-of-concept for exposing Sprocket’s core WDL parsing types to Python, enabling downstream tooling without reimplementing WDL foundations.
 ## What this PoC does
 
 Validates that Sprocket's core WDL parsing types can be exposed to Python using PyO3.
@@ -21,12 +21,12 @@ ValueError: a WDL document must start with a version statement
 
 ## What this PoC intentionally does NOT do
 
-- ❌ Linting
-- ❌ Formatting
-- ❌ AST traversal APIs
-- ❌ Stable Python API guarantees
-- ❌ Performance tuning
-- ❌ CLI
+-  Linting
+-  Formatting
+-  AST traversal APIs
+-  Stable Python API guarantees
+-  Performance tuning
+-  CLI
 
 These are out of scope. This PoC exists solely to de-risk the core technical unknown: can Sprocket's Rust internals be cleanly wired to Python?
 
