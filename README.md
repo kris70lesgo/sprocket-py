@@ -1,7 +1,7 @@
 # sprocket-py
 
-**Proof-of-Concept:** Python bindings for [Sprocket](https://sprocket.bio/)'s WDL parser via [PyO3](https://pyo3.rs/).
-This repository is a proof-of-concept for exposing Sprocket’s core WDL parsing types to Python, enabling downstream tooling without reimplementing WDL foundations.
+**Proof of Concept:** Python bindings for [Sprocket](https://sprocket.bio/)'s WDL parser via [PyO3](https://pyo3.rs/).
+This repository is a proof of concept for exposing Sprocket’s core WDL parsing types to Python, enabling downstream tooling without reimplementing WDL foundations.
 ## What this PoC does
 
 Validates that Sprocket's core WDL parsing types can be exposed to Python using PyO3.
@@ -28,7 +28,7 @@ ValueError: a WDL document must start with a version statement
 -  Performance tuning
 -  CLI
 
-These are out of scope. This PoC exists solely to de-risk the core technical unknown: can Sprocket's Rust internals be cleanly wired to Python?
+These are out of scope. This PoC exists solely to de risk the core technical unknown: can Sprocket's Rust internals be cleanly wired to Python?
 
 ## Architecture
 
@@ -47,13 +47,13 @@ wdl-ast 0.21 (from Sprocket)
 Key design choices:
 - **Rust owns all data** — Python holds an opaque `WdlDocument` handle.
 - **No invented parsing logic** — calls `wdl_ast::Document::parse()`, the same code path Rust users use.
-- **`unsendable` pyclass** — rowan's `SyntaxNode` is `!Send`; the pyclass is pinned to its creation thread.
+- **`unsendable` pyclass** - rowan's `SyntaxNode` is `!Send`; the pyclass is pinned to its creation thread.
 
 ## How to run locally
 
 ```bash
 # Prerequisites: Rust toolchain, Python 3.8+
-git clone <this-repo>
+git clone https://github.com/kris70lesgo/sprocket-py.git
 cd sprocket-py
 
 # Create a virtualenv and install
@@ -78,5 +78,5 @@ sprocket-py/
 ├── pyproject.toml    # Python build config (maturin)
 ├── README.md
 └── src/
-    └── lib.rs        # All Rust code (~60 lines)
+    └── lib.rs        
 ```
